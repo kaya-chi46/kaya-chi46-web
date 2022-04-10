@@ -45,4 +45,4 @@ jobs:
         with:
           args: deploy --only hosting:develop
         env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KAYA_CHI46_WEB }}
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
