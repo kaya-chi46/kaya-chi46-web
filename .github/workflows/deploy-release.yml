@@ -24,9 +24,6 @@ jobs:
           yarn run build
       - name: 📝 Archive Artifact
         uses: actions/upload-artifact@master
-        with:
-          name: public
-          path: public
 
   deploy:
     name: 📮 Deploy
@@ -37,9 +34,6 @@ jobs:
         uses: actions/checkout@v2
       - name: 📥 Download Artifact
         uses: actions/download-artifact@master
-        with:
-          name: public
-          path: public
       - name: 📤 Deploy to Firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
