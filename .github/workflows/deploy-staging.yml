@@ -25,8 +25,8 @@ jobs:
       - name: 📝 Archive Artifact
         uses: actions/upload-artifact@master
         with:
-          name: public
-          path: public
+          name: dist
+          path: dist
 
   deploy:
     name: 📮 Deploy
@@ -38,8 +38,8 @@ jobs:
       - name: 📥 Download Artifact
         uses: actions/download-artifact@master
         with:
-          name: public
-          path: public
+          name: dist
+          path: dist
       - name: 📤 Deploy to Firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
