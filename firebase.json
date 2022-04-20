@@ -1,0 +1,44 @@
+{
+  "functions": {
+    "source": ".output/server"
+  },
+  "hosting": [
+    {
+      "target": "release",
+      "public": ".output/public",
+      "trailingSlash": true,
+      "cleanUrls": true,
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "rewrites": [
+        {
+          "source": "**",
+          "function": "server"
+        }
+      ]
+    },
+    {
+      "target": "develop",
+      "public": ".output/public",
+      "trailingSlash": true,
+      "cleanUrls": true,
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "rewrites": [
+        {
+          "source": "**",
+          "function": "server"
+        }
+      ]
+    }
+  ],
+  "emulators": {
+    "functions": {
+      "port": 5001
+    },
+    "hosting": {
+      "port": 4600
+    },
+    "ui": {
+      "enabled": true
+    }
+  }
+}
