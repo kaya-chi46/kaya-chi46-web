@@ -1,0 +1,6 @@
+{
+  "date": "2022-04-20T15:03:24.639Z",
+  "commands": {
+    "deploy": "npx firebase deploy"
+  }
+}
