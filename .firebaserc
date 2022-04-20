@@ -1,0 +1,17 @@
+{
+  "projects": {
+    "default": "kaya-chi46-web"
+  },
+  "targets": {
+    "kaya-chi46-web": {
+      "hosting": {
+        "release": [
+          "kaya-chi46-web"
+        ],
+        "develop": [
+          "kaya-chi46-web-develop"
+        ]
+      }
+    }
+  }
+}
