@@ -21,7 +21,7 @@ jobs:
       - name: 🚩 NPM Install & Build
         run: |
           yarn install
-          NITRO_PRESET=firebase yarn run build
+          yarn run build
       - name: 📝 Archive Artifact
         uses: actions/upload-artifact@master
         with:
