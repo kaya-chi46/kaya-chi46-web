@@ -4,9 +4,16 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
-    "preview": "nuxt preview"
+    "preview": "nuxt preview",
+    "lint": "eslint --ext .ts,.js,.vue ."
   },
   "devDependencies": {
-    "nuxt": "3.0.0-rc.0"
+    "@nuxtjs/eslint-config-typescript": "^9.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.20.0",
+    "@typescript-eslint/parser": "^5.20.0",
+    "eslint": "^8.13.0",
+    "eslint-plugin-vue": "^8.6.0",
+    "nuxt": "3.0.0-rc.0",
+    "typescript": "^4.6.3"
   }
 }
