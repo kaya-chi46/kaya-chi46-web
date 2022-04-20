@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    name: 🔧 Build
+    name: 🔧 Build and Deploy
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -22,24 +22,6 @@ jobs:
         run: |
           yarn install
           yarn run build
-      - name: 📝 Archive Artifact
-        uses: actions/upload-artifact@master
-        with:
-          name: public
-          path: .output/public
-
-  deploy:
-    name: 📮 Deploy
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: 🖥 Checkout repo
-        uses: actions/checkout@v2
-      - name: 📥 Download Artifact
-        uses: actions/download-artifact@master
-        with:
-          name: public
-          path: .output/public
       - name: 📤 Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
