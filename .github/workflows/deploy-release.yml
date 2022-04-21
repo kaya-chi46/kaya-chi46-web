@@ -1,0 +1,30 @@
+name: Deploy to Firebase project Main (release)
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    name: 🔧 Build and Deploy
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
+    steps:
+      - name: 💪 Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: 🖥 Checkout repo
+        uses: actions/checkout@v2
+      - name: 🚩 NPM Install & Build
+        run: |
+          yarn install
+          yarn run build
+      - name: 📤 Deploy to Firebase
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only hosting:release,functions
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
