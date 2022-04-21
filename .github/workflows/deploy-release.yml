@@ -25,8 +25,8 @@ jobs:
       - name: 📝 Archive Artifact
         uses: actions/upload-artifact@master
         with:
-          name: public
-          path: .output/public
+          name: Output
+          path: .output
 
   deploy:
     name: 📮 Deploy
@@ -38,8 +38,8 @@ jobs:
       - name: 📥 Download Artifact
         uses: actions/download-artifact@master
         with:
-          name: public
-          path: .output/public
+          name: Output
+          path: .output
       - name: 📤 Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
