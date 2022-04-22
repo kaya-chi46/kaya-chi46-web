@@ -21,6 +21,9 @@ export default defineNuxtConfig({
       pathPrefix: false,
     },
   ],
+  publicRuntimeConfig: {
+    gtag: process.env.GTM_ID,
+  },
   css: ['ress', '@fortawesome/fontawesome-svg-core/styles.css'],
   vite: {
     css: {
