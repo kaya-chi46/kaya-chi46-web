@@ -40,6 +40,7 @@ const props = defineProps({
 
 <style lang="scss" scoped>
 .button {
+  box-sizing: border-box;
   position: relative;
   display: flex;
   justify-content: center;
@@ -47,9 +48,11 @@ const props = defineProps({
   width: 100%;
   height: 50px;
   padding: 0 60px;
+  border: 2px solid transparent;
   color: #fff;
   text-decoration: none;
   background-color: $main;
+  transition-duration: $duration;
 
   &-icon,
   &-arrow {
@@ -67,11 +70,14 @@ const props = defineProps({
   &-arrow {
     right: 20px;
     font-size: 2rem;
-    transition-duration: $duration;
+    transition-property: transform;
+    transition-duration: inherit;
   }
 
   @media #{$device-l} {
     &:hover {
+      background-color: #fff !important;
+
       .button {
         &-arrow {
           transform: translateX(5px);
@@ -81,15 +87,36 @@ const props = defineProps({
   }
 
   &.is-twitter {
-    background-color: #1d9bf0;
+    $color: #1d9bf0;
+
+    border-color: $color;
+    background-color: $color;
+
+    &:hover {
+      color: $color;
+    }
   }
 
   &.is-youtube {
-    background-color: #f00;
+    $color: #f00;
+
+    border-color: $color;
+    background-color: $color;
+
+    &:hover {
+      color: $color;
+    }
   }
 
   &.is-twitch {
-    background-color: #9147ff;
+    $color: #9147ff;
+
+    border-color: $color;
+    background-color: $color;
+
+    &:hover {
+      color: $color;
+    }
   }
 }
 </style>

@@ -1,11 +1,6 @@
 <template>
   <div class="kaya">
-    <div
-      class="kaya-image"
-      :style="{
-        'background-image': `url('/assets/images/kaya/kaya_2.png')`,
-      }"
-    />
+    <div class="kaya-image" />
   </div>
 </template>
 
@@ -19,6 +14,7 @@
     display: block;
     width: 100%;
     height: 100%;
+    background-image: url('~/assets/images/kaya/kaya_2.png');
     background-repeat: no-repeat;
     background-position: center top;
     background-size: contain;
