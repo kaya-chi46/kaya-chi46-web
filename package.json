@@ -13,6 +13,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/vue-fontawesome": "^3.0.0-5",
     "@nuxtjs/eslint-config-typescript": "^9.0.0",
+    "@nuxtjs/google-gtag": "^1.0.4",
     "@typescript-eslint/eslint-plugin": "^5.20.0",
     "@typescript-eslint/parser": "^5.20.0",
     "eslint": "^8.13.0",
@@ -25,8 +26,7 @@
     "ress": "^5.0.2",
     "sass": "^1.50.1",
     "sass-loader": "10",
-    "typescript": "^4.6.3",
-    "vue-gtag": "2.0.1"
+    "typescript": "^4.6.3"
   },
   "dependencies": {}
 }

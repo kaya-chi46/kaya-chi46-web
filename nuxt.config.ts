@@ -7,6 +7,19 @@ export default defineNuxtConfig({
   typescript: {
     strict: true,
   },
+  modules: [
+    [
+      '@nuxtjs/google-gtag',
+      {
+        id: process.env.GTM_ID,
+        debug: true,
+        config: {
+          send_page_view: true,
+        },
+        disableAutoPageTrack: true,
+      },
+    ],
+  ],
   build: {
     transpile: [
       '@fortawesome/fontawesome-svg-core',
