@@ -10,7 +10,7 @@ $duration: 0.3s;
 // Size
 // =====================================
 $sp-min-width: 375px;
-$sp-max-width: 768px;
+$tb-min-width: 768px;
 $pc-min-width: 1000px;
 
 $sp-padding: 20px;
@@ -37,5 +37,5 @@ $ff: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'ヒラギノ角ゴ pro 
 // Media Queries
 // =====================================
 $device-dark: 'screen and (prefers-color-scheme: dark)';
-$device-s: 'screen and (max-width: #{$sp-max-width})';
-$device-l: 'screen and (min-width: #{$sp-max-width + 1})';
+$device-s: 'screen and (max-width: #{$tb-min-width})';
+$device-l: 'screen and (min-width: #{$tb-min-width + 1})';

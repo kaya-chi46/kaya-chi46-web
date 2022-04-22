@@ -1,9 +1,7 @@
 <template>
-  <div class="l-container">
-    <NuxtLayout>
-      <NuxtPage />
-    </NuxtLayout>
-  </div>
+  <NuxtLayout class="l-container">
+    <NuxtPage />
+  </NuxtLayout>
 </template>
 
 <script lang="ts" setup>
@@ -61,3 +59,64 @@ useHead({
   ],
 })
 </script>
+
+<style lang="scss">
+html {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  line-height: 1;
+  font-family: $ff;
+  font-size: 10px;
+  color: $font-base;
+  background-color: $base;
+
+  body {
+    width: inherit;
+    height: inherit;
+    font-size: 1.6rem;
+  }
+}
+
+#__nuxt {
+  height: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.l-container {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  min-width: $sp-min-width;
+  height: 100%;
+  min-height: 800px;
+  background-image: $bg-main;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+
+  @media #{$device-l} {
+    min-width: $pc-min-width;
+  }
+}
+
+.wrap {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 $sp-padding;
+  margin: 0 auto;
+
+  @media #{$device-l} {
+    max-width: $tb-min-width;
+    padding: 0 $pc-padding;
+  }
+}
+</style>
