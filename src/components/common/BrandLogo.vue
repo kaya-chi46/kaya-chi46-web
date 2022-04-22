@@ -1,6 +1,6 @@
 <template>
   <span class="logo">
-    <img src="/assets/images/common/logo.png" alt="千城かや Webサイト" />
+    <img src="@/assets/images/common/logo.png" alt="千城かや Webサイト" />
   </span>
 </template>
 
