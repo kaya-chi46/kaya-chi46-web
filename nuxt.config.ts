@@ -21,5 +21,5 @@ export default defineNuxtConfig({
       pathPrefix: false,
     },
   ],
-  css: ['@fortawesome/fontawesome-svg-core/styles.css'],
+  css: ['ress', '@fortawesome/fontawesome-svg-core/styles.css'],
 })
