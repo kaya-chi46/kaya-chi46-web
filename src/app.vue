@@ -46,7 +46,7 @@ useHead({
     },
     {
       name: 'og:image',
-      content: 'https://kaya.chi46.com/images/common/ogp.png',
+      content: 'https://kaya.chi46.com/img/ogp.png',
     },
     {
       name: 'twitter:card',
