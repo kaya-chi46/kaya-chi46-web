@@ -1,4 +1,4 @@
-import VueTag from 'vue-gtag'
+import VueGtag from 'vue-gtag'
 
 export default defineNuxtPlugin((nuxtApp) => {
   const router = useRouter()
@@ -6,7 +6,6 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(
     VueGtag,
     {
-      appName: 'kaya-chi46-web',
       pageTrackerScreenviewEnabled: true,
       config: { id: process.env.GTM_ID },
     },
