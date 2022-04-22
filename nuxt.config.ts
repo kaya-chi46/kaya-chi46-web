@@ -21,5 +21,14 @@ export default defineNuxtConfig({
       pathPrefix: false,
     },
   ],
-  css: ['@fortawesome/fontawesome-svg-core/styles.css'],
+  css: ['ress', '@fortawesome/fontawesome-svg-core/styles.css'],
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@import "@/assets/styles/scss/functions.scss";',
+        },
+      },
+    },
+  },
 })

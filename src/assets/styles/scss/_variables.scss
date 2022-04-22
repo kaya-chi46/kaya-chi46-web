@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+// ***********************************************
+//  Global Variables
+// ***********************************************
+
+$alpha: 0.9;
+$duration: 0.3s;
+
+// Size
+// =====================================
+$sp-min-width: 375px;
+$tb-min-width: 768px;
+$pc-min-width: 1000px;
+
+$sp-padding: 20px;
+$pc-padding: 40px;
+
+// Color
+// =====================================
+$base: #fff3ef;
+$main: #f69e47;
+$accent: #b64545;
+
+$font-base: #333333;
+
+// Background
+// =====================================
+$bg-main: url('~/assets/images/common/pattern.png');
+
+// Font Family
+// =====================================
+$ff: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'ヒラギノ角ゴ pro w3',
+  'hiragino kaku gothic pro', Roboto, YuGothic, 'yu gothic', '游ゴシック体',
+  '游ゴシック', 'メイリオ', meiryo, 'ｍｓ ｐゴシック', 'ms pgothic', sans-serif;
+
+// Media Queries
+// =====================================
+$device-dark: 'screen and (prefers-color-scheme: dark)';
+$device-s: 'screen and (max-width: #{$tb-min-width})';
+$device-l: 'screen and (min-width: #{$tb-min-width + 1})';
