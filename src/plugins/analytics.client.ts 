@@ -1,15 +1,12 @@
 import VueTag from 'vue-gtag'
-import { defineNuxtPlugin } from '#app'
 
 export default defineNuxtPlugin((nuxtApp) => {
-  // ルーター取得
   const router = useRouter()
 
-  // Vue登録
   nuxtApp.vueApp.use(
     VueGtag,
     {
-      appName: 'KayaCHI46.com',
+      appName: 'kaya-chi46-web',
       pageTrackerScreenviewEnabled: true,
       config: { id: process.env.GTM_ID },
     },
