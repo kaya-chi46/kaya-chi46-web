@@ -39,4 +39,5 @@
 definePageMeta({
   layout: 'default',
 })
+useHead({ titleTemplate: '' })
 </script>

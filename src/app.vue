@@ -8,7 +8,8 @@
 
 <script lang="ts" setup>
 useHead({
-  titleTemplate: '千城かや Webサイト - CHISHIRO KAYA Web site.',
+  title: '千城かや Webサイト - CHISHIRO KAYA Web site.',
+  titleTemplate: '%s | 千城かや Webサイト - CHISHIRO KAYA Web site.',
   viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
   charset: 'utf-8',
   link: [
