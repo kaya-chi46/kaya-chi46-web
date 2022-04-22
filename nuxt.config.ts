@@ -7,6 +7,7 @@ export default defineNuxtConfig({
   typescript: {
     strict: true,
   },
+  modules: ['@nuxtjs/gtm'],
   build: {
     transpile: [
       '@fortawesome/fontawesome-svg-core',
@@ -14,6 +15,10 @@ export default defineNuxtConfig({
       '@fortawesome/free-brands-svg-icons',
       '@fortawesome/vue-fontawesome',
     ],
+  },
+  gtm: {
+    id: process.env.GTM_ID,
+    pageTracking: true,
   },
   components: [
     {
