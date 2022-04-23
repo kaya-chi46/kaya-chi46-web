@@ -2,11 +2,15 @@
   <Html lang="ja">
     <Head>
       <Script
+        async
+        :src="`//www.googletagmanager.com/gtag/js?id=${$config.gaId}`"
+      />
+      <Script
         type="text/javascript"
         :children="`
         window.dataLayer = window.dataLayer || []; function
         gtag(){dataLayer.push(arguments);} gtag('js', new Date());
-        gtag('config', '${GAID}');`"
+        gtag('config', '${$config.gaId}');`"
       />
     </Head>
     <NuxtLayout class="l-container">
@@ -16,8 +20,6 @@
 </template>
 
 <script lang="ts" setup>
-const GAID = process.env.GTM_ID
-
 useHead({
   title: '千城かや Webサイト - CHISHIRO KAYA Web site.',
   titleTemplate: '%s | 千城かや Webサイト - CHISHIRO KAYA Web site.',
@@ -68,13 +70,6 @@ useHead({
     {
       name: 'twitter:site',
       content: 'kaya_chi46',
-    },
-  ],
-  __dangerouslyDisableSanitizers: ['script'],
-  script: [
-    {
-      async: true,
-      src: `//www.googletagmanager.com/gtag/js?id=${GAID}`,
     },
   ],
 })
