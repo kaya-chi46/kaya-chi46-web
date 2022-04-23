@@ -5,6 +5,5 @@ export default defineNuxtPlugin((nuxtApp) => {
     property: {
       id: nuxtApp.$config.gtag,
     },
-    useDebugger: true,
   })
 })
