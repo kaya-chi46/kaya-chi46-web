@@ -1,7 +1,5 @@
 import { defineNuxtConfig } from 'nuxt'
 
-const GAID = process.env.GTM_ID
-
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   ssr: true,
@@ -23,9 +21,6 @@ export default defineNuxtConfig({
       pathPrefix: false,
     },
   ],
-  publicRuntimeConfig: {
-    gtag: GAID,
-  },
   css: ['ress', '@fortawesome/fontawesome-svg-core/styles.css'],
   vite: {
     css: {
