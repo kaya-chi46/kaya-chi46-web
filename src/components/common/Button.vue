@@ -87,36 +87,16 @@ const props = defineProps({
     }
   }
 
-  &.is-twitter {
-    $color: #1d9bf0;
+  @each $sns, $color in $sns-list {
+    &.is-#{$sns} {
+      border-color: $color;
+      background-color: $color;
 
-    border-color: $color;
-    background-color: $color;
-
-    &:hover {
-      color: $color;
-    }
-  }
-
-  &.is-youtube {
-    $color: #f00;
-
-    border-color: $color;
-    background-color: $color;
-
-    &:hover {
-      color: $color;
-    }
-  }
-
-  &.is-twitch {
-    $color: #9147ff;
-
-    border-color: $color;
-    background-color: $color;
-
-    &:hover {
-      color: $color;
+      @media #{$device-l} {
+        &:hover {
+          color: $color;
+        }
+      }
     }
   }
 }
