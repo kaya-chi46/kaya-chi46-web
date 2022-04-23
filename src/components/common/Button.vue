@@ -18,6 +18,7 @@
     :href="props.path"
     class="button"
     :class="props.icon ? `is-${props.icon}` : ''"
+    target="_blank"
   >
     <FontAwesome
       v-if="icon"
