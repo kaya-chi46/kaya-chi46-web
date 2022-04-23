@@ -1,10 +1,23 @@
 <template>
-  <NuxtLayout class="l-container">
-    <NuxtPage />
-  </NuxtLayout>
+  <Html lang="ja">
+    <Head>
+      <Script
+        type="text/javascript"
+        :children="`
+        window.dataLayer = window.dataLayer || []; function
+        gtag(){dataLayer.push(arguments);} gtag('js', new Date());
+        gtag('config', '${GAID}');`"
+      />
+    </Head>
+    <NuxtLayout class="l-container">
+      <NuxtPage />
+    </NuxtLayout>
+  </Html>
 </template>
 
 <script lang="ts" setup>
+const GAID = process.env.GTM_ID
+
 useHead({
   title: '千城かや Webサイト - CHISHIRO KAYA Web site.',
   titleTemplate: '%s | 千城かや Webサイト - CHISHIRO KAYA Web site.',
@@ -55,6 +68,13 @@ useHead({
     {
       name: 'twitter:site',
       content: 'kaya_chi46',
+    },
+  ],
+  __dangerouslyDisableSanitizers: ['script'],
+  script: [
+    {
+      async: true,
+      src: `//www.googletagmanager.com/gtag/js?id=${GAID}`,
     },
   ],
 })
