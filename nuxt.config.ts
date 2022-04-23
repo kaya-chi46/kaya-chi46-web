@@ -1,4 +1,5 @@
 import { defineNuxtConfig } from 'nuxt'
+const gtmId = process.env.GTM_ID
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
@@ -6,6 +7,9 @@ export default defineNuxtConfig({
   srcDir: './src',
   typescript: {
     strict: true,
+  },
+  publicRuntimeConfig: {
+    gaId: gtmId,
   },
   build: {
     transpile: [
