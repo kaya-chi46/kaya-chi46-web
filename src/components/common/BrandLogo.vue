@@ -1,6 +1,6 @@
 <template>
   <span class="logo">
-    <img src="@/assets/images/common/logo.png" alt="千城かや Webサイト" />
+    <img src="@/assets/images/common/logo_web.png" alt="千城かや Webサイト" />
   </span>
 </template>
 
@@ -14,7 +14,7 @@
   &::before {
     content: '';
     display: block;
-    padding-top: calc(120px / 335px) * 100%;
+    padding-top: calc(600px / 1600px) * 100%;
   }
 
   img {
