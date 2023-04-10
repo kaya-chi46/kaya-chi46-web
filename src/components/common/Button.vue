@@ -3,7 +3,7 @@
     v-if="typeof props.path === 'object'"
     :to="props.path"
     class="button"
-    :class="props.icon ? `is-${props.icon}` : ''"
+    :class="props.id ? `is-${props.id}` : ''"
   >
     <FontAwesome
       v-if="icon"
@@ -17,7 +17,7 @@
     v-else
     :href="props.path"
     class="button"
-    :class="props.icon ? `is-${props.icon}` : ''"
+    :class="props.id ? `is-${props.id}` : ''"
     target="_blank"
   >
     <FontAwesome
@@ -32,6 +32,7 @@
 
 <script lang="ts" setup>
 const props = defineProps({
+  id: String,
   brand: Boolean,
   icon: String,
   label: String,

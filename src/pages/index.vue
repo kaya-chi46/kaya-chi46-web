@@ -10,14 +10,7 @@
         <ButtonList>
           <li>
             <Button
-              brand
-              icon="twitter"
-              label="Twitter @kaya_chi46"
-              path="https://www.twitter.com/kaya_chi46"
-            />
-          </li>
-          <li>
-            <Button
+              id="youtube"
               brand
               icon="youtube"
               label="YouTube @KayaCHI46"
@@ -26,10 +19,20 @@
           </li>
           <li>
             <Button
+              id="twitch"
               brand
               icon="twitch"
               label="Twitch @kaya_chi46"
               path="https://twitch.tv/kaya_chi46"
+            />
+          </li>
+          <li>
+            <Button
+              id="twitter"
+              brand
+              icon="twitter"
+              label="Twitter @kaya_chi46"
+              path="https://www.twitter.com/kaya_chi46"
             />
           </li>
         </ButtonList>
