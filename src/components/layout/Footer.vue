@@ -11,11 +11,15 @@
 <style lang="scss" scoped>
 .l-footer {
   z-index: 10;
+  position: absolute;
+  inset: 0;
+  top: unset;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 40px;
+  margin: 0 auto;
   color: #fff;
   background-color: $main;
 

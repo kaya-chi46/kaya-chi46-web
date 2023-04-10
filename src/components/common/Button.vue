@@ -49,7 +49,7 @@ const props = defineProps({
   width: 100%;
   height: 50px;
   padding: 0 60px;
-  border: 2px solid transparent;
+  border: 2px solid $main;
   color: #fff;
   text-decoration: none;
   background-color: $main;
@@ -77,6 +77,7 @@ const props = defineProps({
 
   @media #{$device-l} {
     &:hover {
+      color: $main;
       background-color: #fff !important;
 
       .button {

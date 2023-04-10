@@ -1,4 +1,13 @@
 {
   // https://v3.nuxtjs.org/concepts/typescript
-  "extends": "./.nuxt/tsconfig.json"
+  "extends": "./.nuxt/tsconfig.json",
+  "include": ["env.d.ts", "src/**/*", "src/custom.d.ts", "src/**/*.vue"],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@": ["src"],
+      "@/*": ["./src/*"],
+      "@components/*": ["src/components/*"]
+    }
+  }
 }
