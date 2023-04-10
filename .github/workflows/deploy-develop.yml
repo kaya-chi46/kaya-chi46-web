@@ -7,26 +7,36 @@ on:
 jobs:
   build:
     name: 🔧 Build and Deploy
+    env:
+      GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+      GCLOUD_SERVICE_KEY: ${{ secrets.PROD_GCP_KEY }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [19.x]
     steps:
       - name: 💪 Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
       - name: 🖥 Checkout repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Create .env file
         run: echo "${{ secrets.ENV }}" > .env
-      - name: 🚩 NPM Install & Build
+      - name: 🚩 Yarn Install & Build
         run: |
           yarn install
           yarn run build
-      - name: 📤 Deploy to Firebase
-        uses: w9jds/firebase-action@master
-        with:
-          args: deploy --only hosting:develop,functions
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+      - name: 🛩 install firebase
+        run: yarn add -D firebase-tools
+      - name: ⚙ make GOOGLE_APPLICATION_CREDENTIALS
+        run: echo $GCLOUD_SERVICE_KEY | base64 -d > $GOOGLE_APPLICATION_CREDENTIALS
+      - name: 🔃 change environments
+        run: |
+          ./node_modules/.bin/firebase use aitcweb-prod
+      - name: 📤 deploy to hosting
+        run: |
+          ./node_modules/.bin/firebase deploy
+      - name: 🗑 delete GOOGLE_APPLICATION_CREDENTIALS
+        run: rm $GOOGLE_APPLICATION_CREDENTIALS
+        if: ${{ always() }}
