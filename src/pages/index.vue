@@ -1,5 +1,5 @@
 <template>
-  <div class="preRelease">
+  <NuxtLayout name="pre-release">
     <div class="wrap">
       <div class="inner">
         <p class="description">
@@ -36,13 +36,10 @@
       </div>
       <Kaya />
     </div>
-  </div>
+  </NuxtLayout>
 </template>
 
 <script lang="ts" setup>
-definePageMeta({
-  layout: 'default',
-})
 useHead({ titleTemplate: '' })
 </script>
 
