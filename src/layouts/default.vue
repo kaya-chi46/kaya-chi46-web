@@ -1,9 +1,9 @@
 <template>
   <div class="l-container">
     <Header />
-    <main role="main">
+    <Main>
       <slot />
-    </main>
+    </Main>
     <Footer />
   </div>
 </template>
