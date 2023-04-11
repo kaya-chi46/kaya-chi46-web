@@ -35,6 +35,14 @@
               path="https://www.twitter.com/kaya_chi46"
             />
           </li>
+          <li>
+            <Button
+              id="misskey"
+              :src="Misskey"
+              label="@kaya_chi46"
+              path="https://misskey.io/kaya_chi46"
+            />
+          </li>
         </ButtonList>
       </div>
       <Kaya />
@@ -43,6 +51,7 @@
 </template>
 
 <script lang="ts" setup>
+import Misskey from '@/assets/images/common/logo_misskey.svg?url'
 useHead({ titleTemplate: '' })
 </script>
 

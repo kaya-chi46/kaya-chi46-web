@@ -10,6 +10,7 @@
       :icon="{ prefix: props.brand ? 'fab' : 'fas', iconName: props.icon }"
       class="button-icon"
     />
+    <img v-if="src" :src="src" alt="" />
     <span>{{ props.label }}</span>
     <FontAwesome icon="arrow-right" />
   </nuxt-link>
@@ -25,6 +26,7 @@
       :icon="{ prefix: props.brand ? 'fab' : 'fas', iconName: props.icon }"
       class="button-icon"
     />
+    <img v-if="src" :src="src" alt="" />
     <span>{{ props.label }}</span>
     <FontAwesome icon="arrow-right" class="button-arrow" />
   </a>
@@ -35,6 +37,7 @@ const props = defineProps({
   id: String,
   brand: Boolean,
   icon: String,
+  src: String,
   label: String,
   path: [Object, String],
 })
@@ -74,6 +77,11 @@ const props = defineProps({
     font-size: 2rem;
     transition-property: transform;
     transition-duration: inherit;
+  }
+
+  img {
+    margin-right: 10px;
+    height: 1.4em;
   }
 
   @media #{$device-l} {
