@@ -3,37 +3,74 @@
     v-if="typeof props.path === 'object'"
     :to="props.path"
     class="button"
-    :class="props.icon ? `is-${props.icon}` : ''"
+    :class="props.id ? `is-${props.id}` : ''"
   >
+    <slot />
     <FontAwesome
-      v-if="icon"
-      :icon="{ prefix: props.brand ? 'fab' : 'fas', iconName: props.icon }"
+      v-if="props.fa"
+      :icon="{
+        prefix: props.fa.brand ? 'fab' : 'fas',
+        iconName: props.fa.icon,
+      }"
       class="button-icon"
     />
-    <span>{{ props.label }}</span>
+    <span v-if="props.icon" class="button-icon">
+      <img v-if="props.img" :src="props.img.src" alt="" />
+    </span>
+    <span class="button-text">
+      <img
+        v-if="!props.icon && props.img"
+        :src="props.img.src"
+        :alt="props.img.alt"
+      />
+      {{ props.label }}
+    </span>
     <FontAwesome icon="arrow-right" />
   </nuxt-link>
+
   <a
     v-else
     :href="props.path"
     class="button"
-    :class="props.icon ? `is-${props.icon}` : ''"
+    :class="props.id ? `is-${props.id}` : ''"
     target="_blank"
   >
+    <slot />
     <FontAwesome
-      v-if="icon"
-      :icon="{ prefix: props.brand ? 'fab' : 'fas', iconName: props.icon }"
+      v-if="props.fa"
+      :icon="{
+        prefix: props.fa.brand ? 'fab' : 'fas',
+        iconName: props.fa.icon,
+      }"
       class="button-icon"
     />
-    <span>{{ props.label }}</span>
+    <span v-if="props.icon" class="button-icon">
+      <img v-if="props.img" :src="props.img.src" alt="" />
+    </span>
+    <span class="button-text">
+      <img
+        v-if="!props.icon && props.img"
+        :src="props.img.src"
+        :alt="props.img.alt"
+      />
+      {{ props.label }}
+    </span>
     <FontAwesome icon="arrow-right" class="button-arrow" />
   </a>
 </template>
 
 <script lang="ts" setup>
 const props = defineProps({
-  brand: Boolean,
-  icon: String,
+  id: String,
+  fa: {
+    brand: Boolean,
+    icon: String,
+  },
+  icon: Boolean,
+  img: {
+    src: String,
+    alt: String,
+  },
   label: String,
   path: [Object, String],
 })
@@ -49,23 +86,63 @@ const props = defineProps({
   width: 100%;
   height: 50px;
   padding: 0 60px;
-  border: 2px solid transparent;
+  border: 2px solid $main;
   color: #fff;
   text-decoration: none;
   background-color: $main;
   transition-duration: $duration;
 
-  &-icon,
-  &-arrow {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    margin: auto 0;
-  }
+  :deep() {
+    .button {
+      &-icon,
+      &-arrow {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto 0;
+      }
 
-  &-icon {
-    left: 20px;
-    font-size: 2.8rem;
+      &-icon {
+        left: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        font-size: 2.8rem;
+
+        img,
+        svg {
+          width: 100%;
+          height: 100%;
+        }
+
+        img {
+          object-fit: contain;
+        }
+      }
+
+      &-text {
+        display: flex;
+        align-items: center;
+        height: 20px;
+
+        > span {
+          display: block;
+          overflow: hidden;
+        }
+
+        &-image {
+          height: inherit;
+          margin-right: 5px;
+        }
+
+        img,
+        svg {
+          height: inherit;
+        }
+      }
+    }
   }
 
   &-arrow {
@@ -75,8 +152,17 @@ const props = defineProps({
     transition-duration: inherit;
   }
 
+  :deep() {
+    img,
+    svg,
+    svg path {
+      transition-duration: inherit;
+    }
+  }
+
   @media #{$device-l} {
     &:hover {
+      color: $main;
       background-color: #fff !important;
 
       .button {
@@ -89,12 +175,87 @@ const props = defineProps({
 
   @each $sns, $color in $sns-list {
     &.is-#{$sns} {
-      border-color: $color;
-      background-color: $color;
+      @if $sns == 'skeb' {
+        color: $color;
+        border-color: #fff;
+        background-color: #fff;
+      } @else {
+        border-color: $color;
+        background-color: $color;
+      }
 
       @media #{$device-l} {
         &:hover {
-          color: $color;
+          @if $sns == 'skeb' {
+            border-color: $color;
+          } @else if $sns == 'booth' {
+            color: $color;
+
+            :deep(svg path) {
+              fill: $color;
+            }
+          } @else if $sns == 'amazon' {
+            color: $color;
+
+            :deep(svg) {
+              fill: $color !important;
+            }
+          } @else if $sns == 'giftee' {
+            color: $color;
+
+            :deep(svg) {
+              fill: #000;
+
+              .accent {
+                fill: $color;
+              }
+            }
+          } @else {
+            color: $color;
+          }
+        }
+      }
+
+      @if $sns == 'giftee' {
+        :deep(svg) {
+          fill: #fff;
+        }
+      } @else if $sns == 'booth' {
+        :deep() {
+          .button {
+            &-icon {
+              width: 36px;
+              height: 36px;
+              margin-left: -6px;
+            }
+          }
+        }
+      } @else if $sns == 'amazon' {
+        :deep() {
+          .button {
+            &-text {
+              @media #{$device-l} {
+                height: 24px;
+              }
+            }
+          }
+        }
+      } @else if $sns == 'skeb' {
+        :deep() {
+          padding-left: 50px;
+
+          @media #{$device-l} {
+            padding-left: unset;
+          }
+
+          .button {
+            &-text {
+              height: 24px;
+              @media #{$device-l} {
+                height: 28px;
+              }
+            }
+          }
         }
       }
     }

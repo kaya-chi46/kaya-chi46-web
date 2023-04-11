@@ -4,13 +4,19 @@
       <div class="wrap">
         <div class="inner">
           <h1 class="header-logo">
-            <BrandLogo />
+            <BrandLogo :is-web="props.isWeb" />
           </h1>
         </div>
       </div>
     </header>
   </div>
 </template>
+
+<script lang="ts" setup>
+const props = defineProps({
+  isWeb: Boolean,
+})
+</script>
 
 <style lang="scss" scoped>
 .l-header {
@@ -26,20 +32,7 @@
 .header {
   &-logo {
     max-width: 400px;
-    margin: 0 auto;
-
-    &::before {
-      content: '';
-      box-sizing: border-box;
-      display: block;
-      padding-top: calc(160px / 335px) * 100%;
-      max-height: 25vh;
-
-      @media #{$device-l} {
-        padding-top: calc(100px / 400px) * 100%;
-        max-height: 20vh;
-      }
-    }
+    margin: 40px auto 20px;
   }
 }
 </style>

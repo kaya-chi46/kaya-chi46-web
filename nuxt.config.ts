@@ -1,7 +1,7 @@
-import { defineNuxtConfig } from 'nuxt'
-const gtmId = process.env.GTM_ID
+import svgLoader from 'vite-svg-loader'
+require('dotenv').config()
 
-// https://v3.nuxtjs.org/api/configuration/nuxt.config
+// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   ssr: true,
   srcDir: './src',
@@ -9,7 +9,7 @@ export default defineNuxtConfig({
     strict: true,
   },
   publicRuntimeConfig: {
-    gaId: gtmId,
+    gaId: process.env.GTM_ID,
   },
   build: {
     transpile: [
@@ -27,6 +27,7 @@ export default defineNuxtConfig({
   ],
   css: ['ress', '@fortawesome/fontawesome-svg-core/styles.css'],
   vite: {
+    plugins: [svgLoader()],
     css: {
       preprocessorOptions: {
         scss: {

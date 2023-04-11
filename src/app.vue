@@ -5,6 +5,33 @@
         async
         :src="`//www.googletagmanager.com/gtag/js?id=${$config.gaId}`"
       />
+      <Title>千城かや Webサイト - CHISHIRO KAYA Web site.</Title>
+      <Base> | 千城かや Webサイト - CHISHIRO KAYA Web site.</Base>
+      <Meta name="charset" content="utf-8" />
+      <Meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <Meta
+        name="description"
+        content="だらだら妹系バーチャルYouTuber 千城かや(CHISHIRO KAYA)を紹介するWebサイト。"
+      />
+      <Meta name="og:url" content="https://kaya.chi46.com" />
+      <Meta name="og:type" content="website" />
+      <Meta name="og:site_name" content="千城かや Webサイト" />
+      <Meta
+        name="og:title"
+        content="千城かや Webサイト - CHISHIRO KAYA Web site."
+      />
+      <Meta
+        name="og:description"
+        content="だらだら妹系バーチャルYouTuber 千城かや(CHISHIRO KAYA)を紹介するWebサイト。"
+      />
+      <Meta name="og:image" content="https://kaya.chi46.com/img/ogp.png" />
+      <Meta name="twitter:card" content="summary_large_image" />
+      <Meta name="twitter:site" content="kaya_chi46" />
+      <Meta name="twitter:image" content="https://kaya.chi46.com/img/ogp.png" />
+      <Link rel="icon" type="image/x-icon" href="/favicon.ico" />
       <Script
         type="text/javascript"
         :children="`
@@ -13,65 +40,13 @@
         gtag('config', '${$config.gaId}');`"
       />
     </Head>
-    <NuxtLayout class="l-container">
-      <NuxtPage />
-    </NuxtLayout>
+    <NuxtPage />
   </Html>
 </template>
 
 <script lang="ts" setup>
 useHead({
-  title: '千城かや Webサイト - CHISHIRO KAYA Web site.',
   titleTemplate: '%s | 千城かや Webサイト - CHISHIRO KAYA Web site.',
-  viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
-  charset: 'utf-8',
-  link: [
-    {
-      rel: 'icon',
-      type: 'image/x-icon',
-      href: '/favicon.ico',
-    },
-  ],
-  meta: [
-    {
-      name: 'description',
-      content:
-        'だらだら妹系バーチャルYouTuber 千城かや(CHISHIRO KAYA)を紹介するWebサイト。',
-    },
-    {
-      name: 'og:url',
-      content: 'https://kaya.chi46.com',
-    },
-    {
-      name: 'og:type',
-      content: 'website',
-    },
-    {
-      name: 'og:site_name',
-      content: '千城かや Webサイト',
-    },
-    {
-      name: 'og:title',
-      content: '千城かや Webサイト - CHISHIRO KAYA Web site.',
-    },
-    {
-      name: 'og:description',
-      content:
-        'だらだら妹系バーチャルYouTuber 千城かや(CHISHIRO KAYA)を紹介するWebサイト。',
-    },
-    {
-      name: 'og:image',
-      content: 'https://kaya.chi46.com/img/ogp.png',
-    },
-    {
-      name: 'twitter:card',
-      content: 'summary_large_image',
-    },
-    {
-      name: 'twitter:site',
-      content: 'kaya_chi46',
-    },
-  ],
 })
 </script>
 
@@ -111,8 +86,9 @@ ul {
   overflow: hidden;
   width: 100%;
   min-width: $sp-min-width;
-  height: 100%;
-  min-height: 800px;
+  height: auto;
+  min-height: 100vh;
+  padding-bottom: 40px;
   background-image: $bg-main;
   background-repeat: no-repeat;
   background-position: center top;
@@ -120,6 +96,7 @@ ul {
 
   @media #{$device-l} {
     min-width: $pc-min-width;
+    padding-bottom: 50px;
   }
 }
 
@@ -132,6 +109,25 @@ ul {
   @media #{$device-l} {
     max-width: $tb-min-width;
     padding: 0 $pc-padding;
+  }
+}
+
+.hidden-text {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-indent: 100%;
+}
+
+.pc {
+  @media #{$device-s} {
+    display: none !important;
+  }
+}
+
+.sp {
+  @media #{$device-l} {
+    display: none !important;
   }
 }
 </style>
