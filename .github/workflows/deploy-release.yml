@@ -7,26 +7,36 @@ on:
 jobs:
   build:
     name: 🔧 Build and Deploy
+    env:
+      GCLOUD_SERVICE_KEY: ${{ secrets.GCLOUD_SERVICE_KEY }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [19.x]
     steps:
       - name: 💪 Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
       - name: 🖥 Checkout repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Create .env file
         run: echo "${{ secrets.ENV }}" > .env
-      - name: 🚩 NPM Install & Build
+      - name: 📥 Install Google Cloud SDK
+        uses: google-github-actions/setup-gcloud@master
+        with:
+          project_id: kaya-chi46-web
+          service_account_key: ${{ secrets.GCLOUD_SERVICE_KEY }}
+          export_default_credentials: true
+      - name: 🚩 Yarn Install & Build
         run: |
           yarn install
           yarn run build
-      - name: 📤 Deploy to Firebase
-        uses: w9jds/firebase-action@master
-        with:
-          args: deploy --only hosting:release,functions
+      - name: 📤 deploy to hosting
         env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          FIREBASE_SITE: 'kaya-chi46-web'
+        run: |
+          yarn install
+          yarn run build
+          gcloud config set project kaya-chi46-web
+          gcloud firebase deploy --only hosting:release,functions
