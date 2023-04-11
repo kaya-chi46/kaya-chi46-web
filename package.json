@@ -1,5 +1,5 @@
 {
-  "name": "nuxt-app",
+  "name": "kaya-chi46-web",
   "private": true,
   "scripts": {
     "build": "NITRO_PRESET=firebase nuxt build",
