@@ -10,14 +10,14 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [19.x]
     steps:
       - name: 💪 Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
       - name: 🖥 Checkout repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Create .env file
         run: echo "${{ secrets.ENV }}" > .env
       - name: 🚩 NPM Install & Build
@@ -29,4 +29,4 @@ jobs:
         with:
           args: deploy --only hosting:develop,functions
         env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          GCLOUD_SERVICE_KEY: ${{ secrets.GCLOUD_SERVICE_KEY }}
