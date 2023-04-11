@@ -111,4 +111,23 @@ ul {
     padding: 0 $pc-padding;
   }
 }
+
+.hidden-text {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-indent: 100%;
+}
+
+.pc {
+  @media #{$device-s} {
+    display: none !important;
+  }
+}
+
+.sp {
+  @media #{$device-l} {
+    display: none !important;
+  }
+}
 </style>

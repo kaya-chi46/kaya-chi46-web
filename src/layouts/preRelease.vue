@@ -1,6 +1,6 @@
 <template>
   <div class="l-container is-pre">
-    <Header />
+    <Header is-web />
     <Main>
       <slot />
     </Main>
@@ -18,6 +18,24 @@
       @media #{$device-l} {
         width: 400px;
         margin-left: auto;
+      }
+    }
+    .header {
+      &-logo {
+        margin: 0 auto;
+
+        &::before {
+          content: '';
+          box-sizing: border-box;
+          display: block;
+          padding-top: calc(160px / 335px) * 100%;
+          max-height: 25vh;
+
+          @media #{$device-l} {
+            padding-top: calc(80px / 400px) * 100%;
+            max-height: 20vh;
+          }
+        }
       }
     }
   }
