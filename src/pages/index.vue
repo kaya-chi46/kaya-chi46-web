@@ -14,7 +14,7 @@
               brand
               icon="youtube"
               label="YouTube @KayaCHI46"
-              path="https://youtube.com/KayaCHI46"
+              path="https://youtube.com/@kaya_chi46"
             />
           </li>
           <li>
