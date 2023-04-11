@@ -1,3 +1,4 @@
+import svgLoader from 'vite-svg-loader'
 require('dotenv').config()
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
@@ -26,6 +27,7 @@ export default defineNuxtConfig({
   ],
   css: ['ress', '@fortawesome/fontawesome-svg-core/styles.css'],
   vite: {
+    plugins: [svgLoader()],
     css: {
       preprocessorOptions: {
         scss: {
