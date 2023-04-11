@@ -1,8 +1,19 @@
 <template>
   <span class="logo">
-    <img src="@/assets/images/common/logo_web.png" alt="千城かや Webサイト" />
+    <img
+      v-if="props.isWeb"
+      src="@/assets/images/common/logo_web.png"
+      alt="千城かや Webサイト"
+    />
+    <img v-else src="@/assets/images/common/logo_kaya.png" alt="千城かや" />
   </span>
 </template>
+
+<script lang="ts" setup>
+const props = defineProps({
+  isWeb: Boolean,
+})
+</script>
 
 <style lang="scss" scoped>
 .logo {
