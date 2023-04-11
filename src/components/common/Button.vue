@@ -3,7 +3,7 @@
     v-if="typeof props.path === 'object'"
     :to="props.path"
     class="button"
-    :class="props.icon ? `is-${props.icon}` : ''"
+    :class="props.id ? `is-${props.id}` : ''"
   >
     <FontAwesome
       v-if="icon"
@@ -17,7 +17,7 @@
     v-else
     :href="props.path"
     class="button"
-    :class="props.icon ? `is-${props.icon}` : ''"
+    :class="props.id ? `is-${props.id}` : ''"
     target="_blank"
   >
     <FontAwesome
@@ -32,6 +32,7 @@
 
 <script lang="ts" setup>
 const props = defineProps({
+  id: String,
   brand: Boolean,
   icon: String,
   label: String,
@@ -49,7 +50,7 @@ const props = defineProps({
   width: 100%;
   height: 50px;
   padding: 0 60px;
-  border: 2px solid transparent;
+  border: 2px solid $main;
   color: #fff;
   text-decoration: none;
   background-color: $main;
@@ -77,6 +78,7 @@ const props = defineProps({
 
   @media #{$device-l} {
     &:hover {
+      color: $main;
       background-color: #fff !important;
 
       .button {
