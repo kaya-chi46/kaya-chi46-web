@@ -8,6 +8,11 @@ export default defineNuxtConfig({
   typescript: {
     strict: true,
   },
+  nitro: {
+    firebase: {
+      gen: 2,
+    },
+  },
   publicRuntimeConfig: {
     gaId: process.env.GTM_ID,
   },
