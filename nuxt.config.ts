@@ -11,6 +11,9 @@ export default defineNuxtConfig({
   publicRuntimeConfig: {
     gaId: process.env.GTM_ID,
   },
+  nitro: {
+    preset: 'firebase',
+  },
   build: {
     transpile: [
       '@fortawesome/fontawesome-svg-core',
