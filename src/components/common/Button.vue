@@ -115,6 +115,7 @@ const props = defineProps({
         svg {
           width: 100%;
           height: 100%;
+          transition-duration: inherit;
         }
 
         img {
@@ -150,14 +151,6 @@ const props = defineProps({
     font-size: 2rem;
     transition-property: transform;
     transition-duration: inherit;
-  }
-
-  :deep() {
-    img,
-    svg,
-    svg path {
-      transition-duration: inherit;
-    }
   }
 
   @media #{$device-l} {

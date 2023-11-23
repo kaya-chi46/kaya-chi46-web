@@ -12,7 +12,7 @@
             <Button
               id="youtube"
               :fa="{ brand: true, icon: 'youtube' }"
-              label="YouTube @KayaCHI46"
+              label="YouTube: @kaya_chi46"
               path="//youtube.com/@kaya_chi46"
             />
           </li>
@@ -20,22 +20,22 @@
             <Button
               id="twitch"
               :fa="{ brand: true, icon: 'twitch' }"
-              label="Twitch @kaya_chi46"
+              label="Twitch: @kaya_chi46"
               path="//twitch.tv/kaya_chi46"
             />
           </li>
           <li>
             <Button
-              id="twitter"
-              :fa="{ brand: true, icon: 'twitter' }"
-              label="Twitter @kaya_chi46"
-              path="//www.twitter.com/kaya_chi46"
+              id="x"
+              :fa="{ brand: true, icon: 'x-twitter' }"
+              label="X: @kaya_chi46"
+              path="//x.com/kaya_chi46"
             />
           </li>
           <li>
             <Button
               id="misskey"
-              label="Misskey.io @kaya_chi46"
+              label="Misskey.io: @kaya_chi46"
               path="//misskey.io/@kaya_chi46"
             />
           </li>
