@@ -5,6 +5,7 @@ require('dotenv').config()
 export default defineNuxtConfig({
   ssr: true,
   srcDir: './src',
+  compatibilityDate: '2026-06-22',
   typescript: {
     strict: true,
   },
@@ -36,7 +37,7 @@ export default defineNuxtConfig({
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: '@import "@/assets/styles/scss/functions.scss";',
+          additionalData: '@use "@/assets/styles/scss/functions.scss" as *;',
         },
       },
     },
