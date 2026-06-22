@@ -14,32 +14,35 @@
     "lintfix": "prettier --write --list-different . && lint:js -- --fix && lint:style -- --fix"
   },
   "devDependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.4.0",
-    "@fortawesome/free-brands-svg-icons": "^6.4.0",
-    "@fortawesome/free-solid-svg-icons": "^6.4.0",
-    "@fortawesome/vue-fontawesome": "^3.0.3",
+    "@fortawesome/fontawesome-svg-core": "^7.2.0",
+    "@fortawesome/free-brands-svg-icons": "^7.2.0",
+    "@fortawesome/free-solid-svg-icons": "^7.2.0",
+    "@fortawesome/vue-fontawesome": "^3.2.0",
     "@nuxt/eslint-config": "^0.1.1",
     "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
     "@types/node": "^18.15.11",
     "eslint": "^8.38.0",
     "eslint-config-prettier": "^8.8.0",
-    "firebase-admin": "^11.6.0",
-    "firebase-functions": "^4.2.1",
-    "firebase-functions-test": "^3.0.0",
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^4.5.0",
+    "firebase-functions-test": "^0.3.3",
     "nuxt": "^3.3.3",
     "postcss-html": "^1.5.0",
-    "prettier": "^2.8.7",
+    "prettier": "^3.0.0",
     "ress": "^5.0.2",
     "sass": "^1.61.0",
     "sass-loader": "^13.2.2",
     "stylelint": "^15.4.0",
-    "stylelint-config-prettier": "^9.0.5",
-    "stylelint-config-recess-order": "^3",
+    "stylelint-config-recess-order": "^4.0.0",
     "stylelint-config-recommended-vue": "^1.4.0",
-    "stylelint-config-standard-scss": "^5",
-    "stylelint-prettier": "^3.0.0",
+    "stylelint-config-standard-scss": "^11.0.0",
+    "stylelint-prettier": "^4.0.0",
+    "unstorage": "1.10.2",
     "vite-svg-loader": "^4.0.0"
   },
-  "dependencies": {}
+  "volta": {
+    "node": "22.12.0",
+    "npm": "10.8.0"
+  }
 }

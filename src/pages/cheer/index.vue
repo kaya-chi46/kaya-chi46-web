@@ -45,17 +45,15 @@
             </li>
             <li>
               <Button
-                id="amazon"
-                path="//www.amazon.co.jp/hz/wishlist/ls/18VTJVPM500V0"
+                id="gipt"
+                path="//gi-pt.com/main/wishlist/fan-view/3a1296ef-1f49-c063-c054-961a07aec489"
               >
                 <span class="button-text">
                   <span class="button-text-image">
-                    <Amazon />
-                    <span class="hidden-text">Amazon</span>
+                    <img class="button-text-image-default" src="@/assets/images/common/logo_gipt-white.png" alt="Gipt" />
+                    <img class="button-text-image-hover" src="@/assets/images/common/logo_gipt.png" alt="" />
                   </span>
-                  <span>
-                    ほしいものリスト<span class="pc">から贈る</span>
-                  </span>
+                  <span>から贈る</span>
                 </span>
               </Button>
             </li>
@@ -79,7 +77,6 @@ import Skeb from '@/assets/images/common/logo_skeb.svg?url'
 import MarshMallow from '@/assets/images/common/logo_marshmallow.png'
 import Giftee from '@/assets/images/common/logo_giftee.svg?component'
 import Booth from '@/assets/images/common/logo_booth.svg?component'
-import Amazon from '@/assets/images/common/logo_amazon.svg?component'
 </script>
 
 <style lang="scss" scoped>

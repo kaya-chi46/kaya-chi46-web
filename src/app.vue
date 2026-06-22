@@ -1,10 +1,6 @@
 <template>
   <Html lang="ja">
     <Head>
-      <Script
-        async
-        :src="`//www.googletagmanager.com/gtag/js?id=${$config.gaId}`"
-      />
       <Title>千城かや Webサイト - CHISHIRO KAYA Web site.</Title>
       <Base> | 千城かや Webサイト - CHISHIRO KAYA Web site.</Base>
       <Meta name="charset" content="utf-8" />
@@ -32,21 +28,33 @@
       <Meta name="twitter:site" content="kaya_chi46" />
       <Meta name="twitter:image" content="https://kaya.chi46.com/img/ogp.png" />
       <Link rel="icon" type="image/x-icon" href="/favicon.ico" />
-      <Script
-        type="text/javascript"
-        :children="`
-        window.dataLayer = window.dataLayer || []; function
-        gtag(){dataLayer.push(arguments);} gtag('js', new Date());
-        gtag('config', '${$config.gaId}');`"
-      />
     </Head>
     <NuxtPage />
   </Html>
 </template>
 
 <script lang="ts" setup>
+const config = useRuntimeConfig()
+const gaId = config.public.gaId
+
 useHead({
   titleTemplate: '%s | 千城かや Webサイト - CHISHIRO KAYA Web site.',
+  script: gaId
+    ? [
+        {
+          src: `//www.googletagmanager.com/gtag/js?id=${gaId}`,
+          async: true,
+        },
+        {
+          children: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${gaId}');
+          `,
+        },
+      ]
+    : [],
 })
 </script>
 

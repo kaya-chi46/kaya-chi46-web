@@ -115,6 +115,7 @@ const props = defineProps({
         svg {
           width: 100%;
           height: 100%;
+          transition-duration: inherit;
         }
 
         img {
@@ -133,8 +134,22 @@ const props = defineProps({
         }
 
         &-image {
+          position: relative;
           height: inherit;
           margin-right: 5px;
+
+          &-default,
+          &-hover {
+            display: block;
+            transition-duration: inherit;
+          }
+
+          &-hover {
+            position: absolute;
+            inset: 0;
+            margin: auto;
+            opacity: 0;
+          }
         }
 
         img,
@@ -152,18 +167,26 @@ const props = defineProps({
     transition-duration: inherit;
   }
 
-  :deep() {
-    img,
-    svg,
-    svg path {
-      transition-duration: inherit;
-    }
-  }
-
   @media #{$device-l} {
     &:hover {
       color: $main;
       background-color: #fff !important;
+
+      :deep() {
+        .button {
+          &-text {
+            &-image {
+              &-default {
+                opacity: 0;
+              }
+
+              &-hover {
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
 
       .button {
         &-arrow {
@@ -177,11 +200,15 @@ const props = defineProps({
     &.is-#{$sns} {
       @if $sns == 'skeb' {
         color: $color;
-        border-color: #fff;
         background-color: #fff;
+        border-color: #fff;
+      } @else if $sns == 'gipt' {
+        color: #fff;
+        background-image: linear-gradient(90deg, $color);
+        border-color: #fff;
       } @else {
-        border-color: $color;
         background-color: $color;
+        border-color: $color;
       }
 
       @media #{$device-l} {
@@ -210,6 +237,12 @@ const props = defineProps({
                 fill: $color;
               }
             }
+          } @else if $sns == 'gipt' {
+            color: initial;
+            background-color: #fff !important;
+            background-image: none;
+            border-color: transparent;
+            border-image: linear-gradient(90deg, $color) 1;
           } @else {
             color: $color;
           }
@@ -230,16 +263,7 @@ const props = defineProps({
             }
           }
         }
-      } @else if $sns == 'amazon' {
-        :deep() {
-          .button {
-            &-text {
-              @media #{$device-l} {
-                height: 24px;
-              }
-            }
-          }
-        }
+      } @else if $sns == 'gipt' {
       } @else if $sns == 'skeb' {
         :deep() {
           padding-left: 50px;
