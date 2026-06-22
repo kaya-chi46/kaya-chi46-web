@@ -50,7 +50,8 @@
               >
                 <span class="button-text">
                   <span class="button-text-image">
-                    <img src="@/assets/images/common/logo_gipt.png" alt="Gipt" />
+                    <img class="button-text-image-default" src="@/assets/images/common/logo_gipt-white.png" alt="Gipt" />
+                    <img class="button-text-image-hover" src="@/assets/images/common/logo_gipt.png" alt="" />
                   </span>
                   <span>から贈る</span>
                 </span>
@@ -76,7 +77,6 @@ import Skeb from '@/assets/images/common/logo_skeb.svg?url'
 import MarshMallow from '@/assets/images/common/logo_marshmallow.png'
 import Giftee from '@/assets/images/common/logo_giftee.svg?component'
 import Booth from '@/assets/images/common/logo_booth.svg?component'
-import Amazon from '@/assets/images/common/logo_amazon.svg?component'
 </script>
 
 <style lang="scss" scoped>
