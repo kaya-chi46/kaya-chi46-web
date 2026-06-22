@@ -45,17 +45,14 @@
             </li>
             <li>
               <Button
-                id="amazon"
-                path="//www.amazon.co.jp/hz/wishlist/ls/18VTJVPM500V0"
+                id="gipt"
+                path="//gi-pt.com/main/wishlist/fan-view/3a1296ef-1f49-c063-c054-961a07aec489"
               >
                 <span class="button-text">
                   <span class="button-text-image">
-                    <Amazon />
-                    <span class="hidden-text">Amazon</span>
+                    <img src="@/assets/images/common/logo_gipt.png" alt="Gipt" />
                   </span>
-                  <span>
-                    ほしいものリスト<span class="pc">から贈る</span>
-                  </span>
+                  <span>から贈る</span>
                 </span>
               </Button>
             </li>

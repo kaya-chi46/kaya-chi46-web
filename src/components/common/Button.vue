@@ -170,11 +170,15 @@ const props = defineProps({
     &.is-#{$sns} {
       @if $sns == 'skeb' {
         color: $color;
-        border-color: #fff;
         background-color: #fff;
+        border-color: #fff;
+      } @else if $sns == 'gipt' {
+        color: #fff;
+        background-image: linear-gradient(90deg, $color);
+        border-color: #fff;
       } @else {
-        border-color: $color;
         background-color: $color;
+        border-color: $color;
       }
 
       @media #{$device-l} {
@@ -203,6 +207,8 @@ const props = defineProps({
                 fill: $color;
               }
             }
+          } @else if $sns == 'gipt' {
+            color: #fff;
           } @else {
             color: $color;
           }

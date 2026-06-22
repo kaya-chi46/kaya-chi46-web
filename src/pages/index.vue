@@ -26,17 +26,18 @@
           </li>
           <li>
             <Button
-              id="x"
-              :fa="{ brand: true, icon: 'x-twitter' }"
-              label="X: @kaya_chi46"
-              path="//x.com/kaya_chi46"
+              id="bluesky"
+              :fa="{ brand: true, icon: 'bluesky' }"
+              label="Bluesky: @kaya.chi46.com"
+              path="//bsky.app/profile/kaya.chi46.com"
             />
           </li>
           <li>
             <Button
-              id="misskey"
-              label="Misskey.io: @kaya_chi46"
-              path="//misskey.io/@kaya_chi46"
+              id="x"
+              :fa="{ brand: true, icon: 'x-twitter' }"
+              label="X: @kaya_chi46"
+              path="//x.com/kaya_chi46"
             />
           </li>
         </ButtonList>
