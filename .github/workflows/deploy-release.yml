@@ -28,6 +28,14 @@ jobs:
       - name: Build project
         run: npm run build
 
+      - name: Prepare Functions environment
+        run: |
+          if [ -d ".output/server" ]; then
+            cd .output/server
+            npm init -y
+            npm install firebase-functions@v5 firebase-admin
+          fi
+
       # Google Cloud authentication
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v2
