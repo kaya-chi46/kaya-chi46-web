@@ -49,4 +49,8 @@ jobs:
       # Deploy
       - name: Deploy to Firebase
         run: |
-          firebase deploy --only hosting:develop,functions --project kaya-chi46-web
+          echo "🚀 Deploying Hosting..."
+          firebase deploy --only hosting:develop --project kaya-chi46-web --force
+          
+          echo "🚀 Deploying Functions..."
+          firebase deploy --only functions --project kaya-chi46-web --force
