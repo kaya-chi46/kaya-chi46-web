@@ -32,7 +32,7 @@ jobs:
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v2
         with:
-          credentials_json: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_KAYA_CHI46_RELEASE }}'
+          credentials_json: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KAYA_CHI46_WEB }}
 
       # Firebase CLI
       - name: Install Firebase CLI
@@ -41,4 +41,4 @@ jobs:
       # Deploy
       - name: Deploy to Firebase
         run: |
-          firebase deploy --only hosting:release,functions --project kaya-chi46-release
+          firebase deploy --only hosting:release,functions --project kaya-chi46-web
