@@ -28,6 +28,11 @@ jobs:
       - name: Build project
         run: npm run build
 
+      - name: Install Firebase Functions dependencies
+        run: |
+          rm -rf .output/server/node_modules
+          npm install --prefix .output/server --omit=dev --ignore-scripts
+
       # Google Cloud authentication
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v2
