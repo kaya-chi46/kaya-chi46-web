@@ -30,8 +30,11 @@ jobs:
 
       - name: Verify Firebase Functions runtime
         run: |
-          grep -q "firebase-functions/v2/https" .output/server/index.mjs
-          if grep -R -q "firebase-functions/v1" .output/server; then
+          if ! grep -R -q --include='*.mjs' "firebase-functions/v2/https" .output/server; then
+            echo "Firebase Functions v2 runtime was not generated"
+            exit 1
+          fi
+          if grep -R -q --include='*.mjs' "firebase-functions/v1" .output/server; then
             echo "Firebase Functions v1 runtime was generated unexpectedly"
             exit 1
           fi
