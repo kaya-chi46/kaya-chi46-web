@@ -5,8 +5,14 @@ require('dotenv').config()
 export default defineNuxtConfig({
   ssr: true,
   srcDir: './src',
+  compatibilityDate: '2026-06-22',
   typescript: {
     strict: true,
+  },
+  nitro: {
+    firebase: {
+      gen: 2,
+    },
   },
   publicRuntimeConfig: {
     gaId: process.env.GTM_ID,
@@ -34,7 +40,7 @@ export default defineNuxtConfig({
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: '@import "@/assets/styles/scss/functions.scss";',
+          additionalData: '@use "@/assets/styles/scss/functions.scss" as *;',
         },
       },
     },

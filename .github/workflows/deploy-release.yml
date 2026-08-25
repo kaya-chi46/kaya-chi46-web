@@ -5,28 +5,40 @@ on:
     branches: [main]
 
 jobs:
-  build:
-    name: 🔧 Build and Deploy
+  deploy:
+    name: 🚀 Deploy to Firebase Main
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [19.x]
+
+    permissions:
+      contents: read
+      id-token: write
+
     steps:
-      - name: 💪 Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
-      - name: 🖥 Checkout repo
-        uses: actions/checkout@v3
-      - name: Create .env file
-        run: echo "${{ secrets.ENV }}" > .env
-      - name: 🚩 Yarn Install & Build
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
+        run: npm run build
+
+      # Google Cloud authentication
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KAYA_CHI46_WEB }}
+
+      # Firebase CLI
+      - name: Install Firebase CLI
+        run: npm install -g firebase-tools@13
+
+      # Deploy
+      - name: Deploy to Firebase
         run: |
-          yarn install
-          yarn run build
-      - name: 📤 Deploy to Firebase
-        uses: w9jds/firebase-action@master
-        with:
-          args: deploy --only hosting:release,functions
-        env:
-          GCP_SA_KEY: ${{ secrets.GCLOUD_SERVICE_KEY }}
+          firebase deploy --only hosting:release,functions --project kaya-chi46-web
