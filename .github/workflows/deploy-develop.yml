@@ -28,6 +28,14 @@ jobs:
       - name: Build project
         run: npm run build
 
+      - name: Verify Firebase Functions runtime
+        run: |
+          grep -q "firebase-functions/v2/https" .output/server/index.mjs
+          if grep -R -q "firebase-functions/v1" .output/server; then
+            echo "Firebase Functions v1 runtime was generated unexpectedly"
+            exit 1
+          fi
+
       - name: Install Firebase Functions dependencies
         run: |
           rm -rf .output/server/node_modules
