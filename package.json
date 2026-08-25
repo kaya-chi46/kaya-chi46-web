@@ -21,13 +21,13 @@
     "@nuxt/eslint-config": "^0.1.1",
     "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
-    "@types/node": "^18.15.11",
+    "@types/node": "^22.12.0",
     "eslint": "^8.38.0",
     "eslint-config-prettier": "^8.8.0",
-    "firebase-admin": "^12.7.0",
-    "firebase-functions": "^4.5.0",
+    "firebase-admin": "^14.3.0",
+    "firebase-functions": "^7.3.2",
     "firebase-functions-test": "^0.3.3",
-    "nuxt": "^3.3.3",
+    "nuxt": "^3.21.11",
     "postcss-html": "^1.5.0",
     "prettier": "^3.0.0",
     "ress": "^5.0.2",
@@ -44,5 +44,10 @@
   "volta": {
     "node": "22.12.0",
     "npm": "10.8.0"
+  },
+  "overrides": {
+    "stylelint-config-html": "1.1.0",
+    "stylelint-config-recommended": "13.0.0",
+    "minimatch": "^9.0.7"
   }
 }
