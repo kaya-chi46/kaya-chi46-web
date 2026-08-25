@@ -1,6 +1,7 @@
 {
   "functions": {
-    "source": ".output/server"
+    "source": ".output/server",
+    "runtime": "nodejs22"
   },
   "hosting": [
     {
