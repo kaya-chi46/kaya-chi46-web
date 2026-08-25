@@ -2,7 +2,7 @@
   <div class="l-footer">
     <footer>
       <p class="copyright">
-        <small>&copy; Chishiro Kaya 2022</small>
+        <small>&copy; Chishiro Kaya 2026</small>
       </p>
     </footer>
   </div>
